@@ -55,5 +55,9 @@
             <groupId>io.thorntail</groupId>
             <artifactId>microprofile-health</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.thorntail</groupId>
+            <artifactId>swagger-webapp</artifactId>
+        </dependency>
     </dependencies>
 </project>
