@@ -16,6 +16,6 @@ public class HelloWorldEndpoint {
 	@Produces("application/json")
 	@Operation(summary="Greet the world")
 	public Response doGet() {
-		return Response.ok("{\"message\":\"Hello from Thorntail!\"}").build();
+		return Response.ok(new HelloWorld("Hello from Thorntail!")).build();
 	}
 }
