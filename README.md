@@ -7,6 +7,11 @@ Pour construire le projet :
 mvn clean package
 ```
 
+Pour construire le projet en incluant Swagger :
+```
+mvn clean pacakge -Pswagger 
+```
+
 Pour lancer le projet :
 ```
 java -jar ./target/immo-publication-thorntail.jar 
@@ -20,7 +25,7 @@ Pour tester les sondes du projet :
 
 http://localhost:8080/health
 
-Pour visualiser la définition de l'API dans l'interface :
+Pour visualiser la définition de l'API dans Swagger (à condition d'avoir construit le projet avec le profil swagger) :
 
 http://localhost:8080/swagger-ui/index.html?url=http://localhost:8080/openapi
 
