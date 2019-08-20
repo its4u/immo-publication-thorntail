@@ -1,8 +1,10 @@
 package com.its4u.immo.publication.rest;
 
-import javax.enterprise.context.ApplicationScoped;
+import org.eclipse.microprofile.health.HealthCheck;
+import org.eclipse.microprofile.health.HealthCheckResponse;
+import org.eclipse.microprofile.health.Liveness;
 
-import org.eclipse.microprofile.health.*;
+import javax.enterprise.context.ApplicationScoped;
 
 @Liveness
 @ApplicationScoped
