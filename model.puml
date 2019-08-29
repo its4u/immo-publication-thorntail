@@ -1,0 +1,41 @@
+@startuml
+
+actor "Agent Immobilier" as agent_immobilier
+
+component "Application" as application
+
+node {
+    component "Microservice Gestion Patrimoniale" as ms_gestion_patrimoniale
+    database "Référentiel des Biens" as db_patrimoine
+}
+
+node {
+    component "Microservice Gestion Publication" as ms_gestion_publication
+    database "Référentiel des Publications" as db_publication
+}
+
+node {
+    component "Microservice Gestion Locative" as ms_gestion_locative
+    database "Référentiel Location" as db_location
+}
+
+component site_internet
+
+
+
+agent_immobilier -- application
+
+ms_gestion_patrimoniale -- db_patrimoine
+ms_gestion_locative -- db_location
+ms_gestion_publication -- db_publication
+
+ms_gestion_locative -l-> ms_gestion_patrimoniale : 1. mettre le bien en location
+ms_gestion_patrimoniale -r-> ms_gestion_locative : 2. créer annonce brute
+application -d-> ms_gestion_locative : 3. enrichir annonce
+application -d-> ms_gestion_publication : 4. publier annonce
+application -d-> ms_gestion_locative : 5. créer dossier
+application -d-> ms_gestion_locative : 6. créer bail
+
+ms_gestion_publication -r-> site_internet: diffuser
+
+@enduml
